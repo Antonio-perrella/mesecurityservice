@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --brand-navy: #00132c;
+  --brand-navy-light: #0a2447;
+  --brand-gold: #f5bd32;
+  --brand-gold-light: #ffd060;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Bootstrap 4 reboot underlines a:hover with a higher specificity than Material's anchor buttons */
+a.mat-mdc-button-base:hover { text-decoration: none; }

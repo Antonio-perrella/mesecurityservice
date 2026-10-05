@@ -1,0 +1,70 @@
+.whatsapp-button {
+  position: fixed;
+  right: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 22px 0 18px;
+  border-radius: 28px;
+  background: #25d366;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+
+  svg {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+  }
+
+  &:hover {
+    background: #1ebe5b;
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--brand-gold);
+    outline-offset: 3px;
+  }
+}
+
+// On mobile only the round icon, so it doesn't cover the content
+@media (max-width: 767.98px) {
+  .whatsapp-button {
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    justify-content: center;
+    width: 56px;
+    padding: 0;
+    border-radius: 50%;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .whatsapp-label {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-button {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}

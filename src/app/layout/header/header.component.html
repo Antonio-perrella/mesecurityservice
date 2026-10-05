@@ -1,0 +1,67 @@
+<header class="site-header">
+  <div class="container header-bar">
+    <a class="brand" routerLink="/" (click)="closeMenu()">
+      <img class="brand-logo" src="assets/logo.png" alt="" width="159" height="192">
+      <span class="brand-text">
+        <span class="brand-title">ME</span>
+        <span class="brand-subtitle">Security Service</span>
+      </span>
+    </a>
+
+    <nav class="desktop-nav d-none d-md-flex" aria-label="Menu principale">
+      @for (item of menuItems; track item.path) {
+        <a class="menu-link" [routerLink]="item.path" routerLinkActive="active" ariaCurrentWhenActive="page">
+          {{ item.label }}
+        </a>
+      }
+      <a class="quote-link" [routerLink]="quoteItem.path" routerLinkActive="active" ariaCurrentWhenActive="page">
+        {{ quoteItem.label }}
+      </a>
+    </nav>
+
+    <button
+      mat-icon-button
+      type="button"
+      class="burger d-md-none"
+      aria-controls="mobile-menu"
+      [attr.aria-expanded]="menuOpen()"
+      [attr.aria-label]="menuOpen() ? 'Chiudi menu' : 'Apri menu'"
+      (click)="toggleMenu()"
+    >
+      <mat-icon>{{ menuOpen() ? 'close' : 'menu' }}</mat-icon>
+    </button>
+  </div>
+
+  <nav
+    id="mobile-menu"
+    class="mobile-nav d-md-none"
+    aria-label="Menu principale"
+    [class.open]="menuOpen()"
+    [attr.inert]="menuOpen() ? null : ''"
+  >
+    <div class="mobile-nav-inner">
+      <div class="container">
+        @for (item of menuItems; track item.path) {
+          <a
+            class="mobile-link"
+            [routerLink]="item.path"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            (click)="closeMenu()"
+          >
+            {{ item.label }}
+          </a>
+        }
+        <a
+          class="quote-link quote-link--block"
+          [routerLink]="quoteItem.path"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          (click)="closeMenu()"
+        >
+          {{ quoteItem.label }}
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>

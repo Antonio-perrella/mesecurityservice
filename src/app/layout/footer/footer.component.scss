@@ -1,0 +1,196 @@
+:host {
+  display: block;
+}
+
+.site-footer {
+  background: var(--brand-navy);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+}
+
+a {
+  color: var(--brand-gold);
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    color: var(--brand-gold-light);
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand-gold);
+    outline-offset: 2px;
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-main {
+  padding: 48px 0 16px;
+}
+
+.footer-col {
+  margin-bottom: 32px;
+}
+
+.footer-brand {
+  display: inline-block;
+  margin-bottom: 24px;
+
+  img {
+    height: 88px;
+    width: auto;
+  }
+}
+
+.footer-title {
+  margin-bottom: 16px;
+  color: var(--brand-gold);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+// Company data
+
+.company-data {
+  margin: 0;
+
+  p {
+    margin-bottom: 6px;
+  }
+}
+
+.company-name {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.data-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+// Menu
+
+.footer-nav {
+  li + li {
+    margin-top: 8px;
+  }
+
+  a {
+    color: rgba(255, 255, 255, 0.85);
+
+    &:hover {
+      color: var(--brand-gold);
+    }
+  }
+}
+
+// Contacts
+
+.contact-list {
+  margin-bottom: 28px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  li + li {
+    margin-top: 12px;
+  }
+
+  mat-icon,
+  .contact-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: var(--brand-gold);
+    font-size: 20px;
+  }
+
+  .contact-icon {
+    fill: currentColor;
+  }
+
+  a {
+    overflow-wrap: anywhere;
+  }
+}
+
+.social-list {
+  display: flex;
+  gap: 12px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
+  &:hover {
+    background: var(--brand-gold);
+    color: var(--brand-navy);
+    text-decoration: none;
+  }
+}
+
+// Bottom bar
+
+// Bottom padding leaves room for the floating WhatsApp button, so it doesn't cover the legal links
+.footer-bottom {
+  padding: 16px 0 96px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.legal-nav {
+  display: flex;
+  gap: 20px;
+
+  a {
+    color: rgba(255, 255, 255, 0.75);
+
+    &:hover {
+      color: var(--brand-gold);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a {
+    transition: none;
+  }
+}

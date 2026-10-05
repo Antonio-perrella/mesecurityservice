@@ -1,0 +1,71 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="row footer-main">
+      <div class="col-12 col-lg-5 footer-col">
+        <a class="footer-brand" routerLink="/" aria-label="ME Security Service, torna alla home">
+          <img src="assets/logo.png" alt="" width="159" height="192">
+        </a>
+
+        <h2 class="footer-title">Dati società</h2>
+        <address class="company-data">
+          <p class="company-name">{{ contact.companyName }}</p>
+          <p><span class="data-label">Partita IVA:</span> {{ contact.vatNumber }}</p>
+          <p><span class="data-label">Sede legale e operativa:</span> {{ contact.address }}</p>
+          <p><span class="data-label">PEC: </span><a [href]="'mailto:' + contact.pec">{{ contact.pec }}</a></p>
+        </address>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3 footer-col">
+        <h2 class="footer-title">Menu</h2>
+        <ul class="footer-nav">
+          @for (item of menuItems; track item.path) {
+            <li><a [routerLink]="item.path">{{ item.label }}</a></li>
+          }
+        </ul>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4 footer-col">
+        <h2 class="footer-title">Contatti</h2>
+        <ul class="contact-list">
+          <li>
+            <mat-icon aria-hidden="true">call</mat-icon>
+            <a [href]="contact.phoneHref">{{ contact.phone }}</a>
+          </li>
+          <li>
+            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path [attr.d]="whatsappIcon" />
+            </svg>
+            <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer">Scrivici su WhatsApp</a>
+          </li>
+          <li>
+            <mat-icon aria-hidden="true">mail</mat-icon>
+            <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+          </li>
+        </ul>
+
+        <h2 class="footer-title">Seguici</h2>
+        <ul class="social-list">
+          @for (social of socialLinks; track social.label) {
+            <li>
+              <a class="social-link" [href]="social.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="social.label">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path [attr.d]="social.icon" />
+                </svg>
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>© {{ year }} {{ contact.companyName }} · P.IVA {{ contact.vatNumber }}</p>
+      <nav class="legal-nav" aria-label="Note legali">
+        <a routerLink="/privacy-policy">Privacy Policy</a>
+        <a routerLink="/cookie-policy">Cookie Policy</a>
+      </nav>
+    </div>
+  </div>
+</footer>
