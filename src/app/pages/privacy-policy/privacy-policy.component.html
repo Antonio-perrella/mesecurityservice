@@ -1,4 +1,140 @@
-<section class="container py-5">
+<!-- Draft to be reviewed by a privacy consultant before the site goes live.
+     When the contact/quote form is added: update section 2.2 and list the form service among the recipients (section 5). -->
+<article class="container legal-page">
   <h1>Privacy Policy</h1>
-  <p>Informativa in preparazione.</p>
-</section>
+  <p class="legal-updated">Ultimo aggiornamento: 5 ottobre 2026</p>
+
+  <p>
+    Questa informativa, resa ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR), descrive come vengono trattati
+    i dati personali di chi visita questo sito e di chi ci contatta tramite i recapiti indicati.
+  </p>
+
+  <h2>1. Titolare del trattamento</h2>
+  <p>
+    Il titolare del trattamento è <strong>{{ contact.companyName }}</strong>, con sede legale e operativa in
+    {{ contact.address }}, Partita IVA {{ contact.vatNumber }}.
+  </p>
+  <p>
+    Puoi contattarci all'indirizzo email <a [href]="'mailto:' + contact.email">{{ contact.email }}</a> oppure alla PEC
+    <a [href]="'mailto:' + contact.pec">{{ contact.pec }}</a>.
+  </p>
+
+  <h2>2. Dati trattati, finalità e base giuridica</h2>
+
+  <h3>2.1 Dati di navigazione</h3>
+  <p>
+    Durante la navigazione, i sistemi che ospitano il sito acquisiscono alcuni dati la cui trasmissione è implicita
+    nell'uso dei protocolli di Internet: indirizzo IP, tipo di browser e sistema operativo, pagina richiesta, data e ora
+    della richiesta ed esito della risposta del server. Questi dati servono solo a garantire il funzionamento e la
+    sicurezza del sito, ad esempio per individuare abusi o attacchi informatici, e non vengono usati per identificare
+    gli utenti.
+  </p>
+  <p>
+    <strong>Base giuridica:</strong> legittimo interesse del titolare alla sicurezza e al corretto funzionamento del
+    sito (art. 6, par. 1, lett. f GDPR).
+  </p>
+
+  <h3>2.2 Richieste di contatto e di preventivo</h3>
+  <p>
+    Quando ci contatti via email, PEC, telefono o WhatsApp, trattiamo i dati che ci fornisci (ad esempio nome, recapiti
+    e contenuto della richiesta) per risponderti e, se lo chiedi, per preparare un preventivo.
+  </p>
+  <p>
+    <strong>Base giuridica:</strong> esecuzione di misure precontrattuali adottate su tua richiesta (art. 6, par. 1,
+    lett. b GDPR).
+  </p>
+  <p>
+    Se ci scrivi su WhatsApp, i messaggi transitano anche attraverso il servizio di WhatsApp Ireland Limited, che li
+    tratta secondo la propria
+    <a href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener noreferrer">informativa privacy</a>.
+  </p>
+  <p>
+    Ti invitiamo a non inviarci dati non necessari alla richiesta, in particolare dati relativi alla salute o ad altre
+    categorie particolari di dati (art. 9 GDPR).
+  </p>
+
+  <h3>2.3 Mappa e cookie</h3>
+  <p>
+    Il sito non utilizza cookie propri né strumenti di profilazione. Se scegli di visualizzare la mappa di Google Maps
+    nella pagina Contatti, Google riceve alcuni dati (come l'indirizzo IP) e può installare propri cookie.
+  </p>
+  <p>
+    <strong>Base giuridica:</strong> consenso (art. 6, par. 1, lett. a GDPR), che esprimi cliccando su "Mostra mappa".
+    Tutti i dettagli sono nella <a routerLink="/cookie-policy">Cookie Policy</a>.
+  </p>
+
+  <h2>3. Natura del conferimento</h2>
+  <p>
+    I dati di navigazione sono acquisiti automaticamente durante l'uso del sito. Il conferimento dei dati per le
+    richieste di contatto è facoltativo, ma senza di essi non possiamo rispondere alla tua richiesta.
+  </p>
+
+  <h2>4. Modalità del trattamento</h2>
+  <p>
+    I dati sono trattati con strumenti elettronici e con misure di sicurezza adeguate a prevenirne la perdita, l'uso
+    illecito e l'accesso non autorizzato (art. 32 GDPR). Il sito è raggiungibile solo tramite connessione cifrata (HTTPS).
+  </p>
+
+  <h2>5. Destinatari dei dati</h2>
+  <p>I dati possono essere trattati, per conto del titolare, dai fornitori dei servizi che utilizziamo:</p>
+  <ul>
+    <li>Aruba S.p.A., che ospita il sito;</li>
+    <li>i fornitori dei servizi di posta elettronica e di posta elettronica certificata (PEC).</li>
+  </ul>
+  <p>
+    I dati possono inoltre essere comunicati alle autorità competenti, quando previsto dalla legge. Non vengono diffusi
+    né ceduti a terzi per finalità commerciali.
+  </p>
+
+  <h2>6. Trasferimento dei dati fuori dall'Unione Europea</h2>
+  <p>
+    Il sito è ospitato su server di Aruba S.p.A. situati nell'Unione Europea. Alcuni fornitori, come i servizi di posta
+    elettronica o WhatsApp, possono trattare i dati anche fuori dall'Unione Europea: in questi casi il trasferimento
+    avviene sulla base di una decisione di adeguatezza della Commissione europea (come l'EU-US Data Privacy Framework)
+    oppure delle clausole contrattuali standard approvate dalla Commissione (art. 46 GDPR).
+  </p>
+
+  <h2>7. Periodo di conservazione</h2>
+  <ul>
+    <li>
+      <strong>Dati di navigazione:</strong> per il tempo previsto dal fornitore di hosting per i log tecnici, salvo
+      che servano ad accertare eventuali reati informatici.
+    </li>
+    <li>
+      <strong>Richieste di contatto:</strong> per il tempo necessario a gestire la richiesta e comunque non oltre
+      12 mesi dall'ultimo contatto, se non ne nasce un contratto. Se la richiesta porta a un contratto, i dati sono
+      conservati per la durata del rapporto e per i tempi previsti dalla legge (ad esempio 10 anni per i documenti
+      contabili e fiscali).
+    </li>
+  </ul>
+
+  <h2>8. Diritti dell'interessato</h2>
+  <p>In qualsiasi momento puoi chiedere al titolare:</p>
+  <ul>
+    <li>l'accesso ai tuoi dati personali (art. 15 GDPR);</li>
+    <li>la rettifica dei dati inesatti (art. 16);</li>
+    <li>la cancellazione dei dati (art. 17);</li>
+    <li>la limitazione del trattamento (art. 18);</li>
+    <li>la portabilità dei dati (art. 20);</li>
+    <li>di opporti al trattamento, in particolare a quello basato sul legittimo interesse (art. 21).</li>
+  </ul>
+  <p>
+    Puoi inoltre revocare in qualsiasi momento il consenso eventualmente prestato, senza pregiudicare la liceità del
+    trattamento svolto prima della revoca (art. 7, par. 3). Per esercitare i tuoi diritti scrivi ai recapiti indicati
+    al punto 1.
+  </p>
+  <p>
+    Se ritieni che il trattamento dei tuoi dati violi il GDPR, puoi proporre reclamo al
+    <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener noreferrer">Garante per la protezione dei dati personali</a>
+    (art. 77 GDPR).
+  </p>
+
+  <h2>9. Processi decisionali automatizzati</h2>
+  <p>Non adottiamo processi decisionali automatizzati, compresa la profilazione (art. 22 GDPR).</p>
+
+  <h2>10. Modifiche a questa informativa</h2>
+  <p>
+    Questa informativa può essere aggiornata, ad esempio quando vengono aggiunti nuovi servizi al sito. La data
+    dell'ultimo aggiornamento è indicata in cima alla pagina.
+  </p>
+</article>

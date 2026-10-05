@@ -1,4 +1,115 @@
-<section class="container py-5">
+<!-- Draft to be reviewed by a privacy consultant before the site goes live -->
+<article class="container legal-page">
   <h1>Cookie Policy</h1>
-  <p>Informativa in preparazione.</p>
-</section>
+  <p class="legal-updated">Ultimo aggiornamento: 5 ottobre 2026</p>
+
+  <h2>1. Titolare del trattamento</h2>
+  <p>
+    Il titolare del trattamento è <strong>{{ contact.companyName }}</strong>, con sede legale e operativa in
+    {{ contact.address }}, Partita IVA {{ contact.vatNumber }}.
+  </p>
+  <p>
+    Per qualsiasi domanda su questa informativa puoi scrivere a
+    <a [href]="'mailto:' + contact.email">{{ contact.email }}</a> oppure alla PEC
+    <a [href]="'mailto:' + contact.pec">{{ contact.pec }}</a>.
+  </p>
+
+  <h2>2. Cosa sono i cookie</h2>
+  <p>
+    I cookie sono piccoli file di testo che i siti visitati salvano nel browser dell'utente, per poterli rileggere
+    nelle visite successive. Altri strumenti che salvano o leggono informazioni sul dispositivo, come il
+    <em>localStorage</em> del browser, funzionano in modo simile e in questa informativa sono trattati allo stesso modo.
+  </p>
+  <p>In base alla finalità, i cookie si distinguono in:</p>
+  <ul>
+    <li><strong>tecnici</strong>: necessari al funzionamento del sito o a fornire un servizio richiesto dall'utente; non richiedono il consenso;</li>
+    <li><strong>analitici</strong>: raccolgono statistiche sull'uso del sito;</li>
+    <li><strong>di profilazione</strong>: creano un profilo dell'utente per mostrargli pubblicità personalizzata; richiedono il consenso preventivo.</li>
+  </ul>
+  <p>
+    Possono essere installati direttamente dal sito che stai visitando (cookie di prima parte) oppure da servizi di altri
+    soggetti incorporati nelle pagine (cookie di terze parti).
+  </p>
+
+  <h2>3. Cookie utilizzati da questo sito</h2>
+  <p>
+    Questo sito <strong>non installa cookie propri</strong> e non utilizza cookie analitici, cookie di profilazione o
+    altri strumenti di tracciamento come i pixel pubblicitari. Anche i caratteri tipografici e le icone sono caricati
+    direttamente dal sito, senza contattare servizi esterni.
+  </p>
+  <p>L'unico servizio di terze parti che può installare cookie è il seguente:</p>
+
+  <!-- Describes the click-to-load Google Maps map planned for the Contatti page -->
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Servizio</th>
+          <th scope="col">Fornitore</th>
+          <th scope="col">Finalità</th>
+          <th scope="col">Quando si attiva</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mappa Google Maps (pagina Contatti)</td>
+          <td>Google Ireland Limited</td>
+          <td>Mostrare la posizione della sede</td>
+          <td>Solo dopo il clic su "Mostra mappa"</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Finché non clicchi su "Mostra mappa", la mappa non viene caricata e a Google non viene inviato alcun dato. Dopo il
+    clic, Google può installare propri cookie e trattare i tuoi dati secondo la propria
+    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> e le
+    proprie <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer">regole sull'uso dei cookie</a>.
+  </p>
+
+  <h2>4. Base giuridica</h2>
+  <p>
+    I cookie tecnici possono essere utilizzati senza consenso, ai sensi dell'art. 122 del D.Lgs. 196/2003 (Codice
+    Privacy). I cookie di terze parti di Google Maps vengono installati solo con il tuo consenso (art. 6, par. 1,
+    lett. a del Regolamento UE 2016/679, GDPR), che esprimi cliccando su "Mostra mappa".
+  </p>
+
+  <h2>5. Link a servizi esterni</h2>
+  <p>
+    Il sito contiene collegamenti a WhatsApp, Facebook e Instagram. Si tratta di semplici link: nessun dato viene inviato
+    a questi servizi finché non li apri. Da quel momento si applicano le informative dei rispettivi gestori:
+    <a href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener noreferrer">WhatsApp</a> e
+    <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Meta (Facebook e Instagram)</a>.
+  </p>
+
+  <h2>6. Come gestire o revocare il consenso</h2>
+  <p>
+    Il consenso alla mappa vale solo per la visita in corso: alla visita successiva la mappa resta bloccata finché non
+    clicchi di nuovo su "Mostra mappa". Puoi inoltre cancellare in qualsiasi momento i cookie già salvati, e bloccare
+    quelli futuri, dalle impostazioni del tuo browser:
+  </p>
+  <ul>
+    <li><a href="https://support.google.com/chrome/answer/95647?hl=it" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+    <li><a href="https://support.mozilla.org/kb/clear-cookies-and-site-data-firefox" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+    <li><a href="https://support.microsoft.com/it-it/edge/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+    <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Safari su Mac</a></li>
+    <li><a href="https://support.apple.com/it-it/105082" target="_blank" rel="noopener noreferrer">Safari su iPhone e iPad</a></li>
+  </ul>
+
+  <h2>7. Diritti dell'utente</h2>
+  <p>
+    In qualsiasi momento puoi esercitare i diritti previsti dagli articoli da 15 a 22 del GDPR (accesso, rettifica,
+    cancellazione, limitazione, opposizione e portabilità dei dati) scrivendo ai contatti indicati al punto 1, e proporre
+    reclamo al <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener noreferrer">Garante per la protezione dei dati personali</a>.
+  </p>
+  <p>
+    Per maggiori informazioni sul trattamento dei dati personali consulta la
+    <a routerLink="/privacy-policy">Privacy Policy</a>.
+  </p>
+
+  <h2>8. Modifiche a questa informativa</h2>
+  <p>
+    Questa informativa può essere aggiornata, ad esempio quando vengono aggiunti nuovi servizi al sito. La data
+    dell'ultimo aggiornamento è indicata in cima alla pagina.
+  </p>
+</article>
