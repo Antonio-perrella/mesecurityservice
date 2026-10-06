@@ -1,0 +1,123 @@
+:host {
+  display: block;
+}
+
+.form-card {
+  padding: 32px;
+  border-top: 3px solid var(--brand-gold);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 19, 44, 0.06);
+}
+
+.form-title {
+  margin-bottom: 8px;
+  color: var(--brand-navy);
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.form-intro {
+  margin-bottom: 24px;
+  color: #4a5568;
+}
+
+label {
+  color: var(--brand-navy);
+  font-weight: 500;
+}
+
+// Bootstrap controls in the brand colours instead of the default blue
+
+.form-control,
+.custom-select {
+  min-height: 46px;
+  border-color: #cdd5df;
+  border-radius: 8px;
+
+  &:focus {
+    border-color: var(--brand-navy-light);
+    box-shadow: 0 0 0 0.2rem rgba(10, 36, 71, 0.2);
+  }
+}
+
+.custom-control-input {
+  &:checked ~ .custom-control-label::before {
+    border-color: var(--brand-navy);
+    background-color: var(--brand-navy);
+  }
+
+  &:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 0.2rem rgba(10, 36, 71, 0.2);
+  }
+}
+
+.custom-control-label {
+  font-weight: 400;
+
+  a {
+    color: var(--brand-navy-light);
+    text-decoration: underline;
+  }
+}
+
+.invalid-feedback {
+  font-size: 0.875rem;
+}
+
+.privacy-note {
+  margin-bottom: 24px;
+  color: #4a5568;
+  font-size: 0.85rem;
+}
+
+.cta-btn {
+  width: 100%;
+
+  @media (min-width: 576px) {
+    width: auto;
+  }
+}
+
+// Send result
+
+.form-alert {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 16px;
+  border-radius: 8px;
+
+  mat-icon {
+    flex-shrink: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+.form-alert--success {
+  background: #e7f6ec;
+  color: #14532d;
+}
+
+.form-alert--error {
+  background: #fdecec;
+  color: #7f1d1d;
+}
+
+// Moved off screen rather than display: none, which some bots detect and skip
+
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

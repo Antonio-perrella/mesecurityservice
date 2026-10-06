@@ -28,8 +28,12 @@
         <h2 class="footer-title">Contatti</h2>
         <ul class="contact-list">
           <li>
-            <mat-icon aria-hidden="true">call</mat-icon>
+            <mat-icon aria-hidden="true">smartphone</mat-icon>
             <a [href]="contact.phoneHref">{{ contact.phone }}</a>
+          </li>
+          <li>
+            <mat-icon aria-hidden="true">call</mat-icon>
+            <a [href]="contact.landlineHref">{{ contact.landline }}</a>
           </li>
           <li>
             <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">

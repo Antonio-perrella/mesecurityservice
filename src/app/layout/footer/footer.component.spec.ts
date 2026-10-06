@@ -29,12 +29,13 @@ describe('FooterComponent', () => {
     const text = element.querySelector('.company-data')!.textContent!;
     expect(text).toContain('M.E. Security Service Srl');
     expect(text).toContain('11075411212');
-    expect(text).toContain('Via Napoli a Chiaiano 38 (NA)');
+    expect(text).toContain('Via Napoli 38, Chiaiano (NA)');
     expect(element.querySelector('a[href="mailto:vigilanzamesrl@pec.it"]')).toBeTruthy();
   });
 
   it('should link phone and email', () => {
     expect(element.querySelector('a[href="tel:+393522456708"]')).toBeTruthy();
+    expect(element.querySelector('a[href="tel:+3908119634301"]')).toBeTruthy();
     expect(element.querySelector('a[href="mailto:vigilanzamesrl@outlook.com"]')).toBeTruthy();
   });
 

@@ -1,4 +1,114 @@
-<section class="container py-5">
-  <h1>Contatti</h1>
-  <p>Pagina in costruzione.</p>
+<header class="page-header">
+  <div class="container">
+    <p class="section-eyebrow">Contatti</p>
+    <h1>Parliamo della tua sicurezza</h1>
+    <p>
+      Chiamaci, scrivici su WhatsApp o compila il modulo: siamo a disposizione per un preventivo gratuito
+      o per fissare un appuntamento.
+    </p>
+  </div>
+</header>
+
+<section class="section section--light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-5 contact-col">
+        <h2 class="contact-heading">I nostri recapiti</h2>
+
+        <ul class="contact-list">
+          <li>
+            <span class="icon-badge"><mat-icon aria-hidden="true">smartphone</mat-icon></span>
+            <div>
+              <span class="contact-label">Cellulare</span>
+              <a [href]="contact.phoneHref">{{ contact.phone }}</a>
+            </div>
+          </li>
+          <li>
+            <span class="icon-badge"><mat-icon aria-hidden="true">call</mat-icon></span>
+            <div>
+              <span class="contact-label">Telefono fisso</span>
+              <a [href]="contact.landlineHref">{{ contact.landline }}</a>
+            </div>
+          </li>
+          <li>
+            <span class="icon-badge">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path [attr.d]="whatsappIcon" /></svg>
+            </span>
+            <div>
+              <span class="contact-label">WhatsApp</span>
+              <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer">Scrivici su WhatsApp</a>
+            </div>
+          </li>
+          <li>
+            <span class="icon-badge"><mat-icon aria-hidden="true">mail</mat-icon></span>
+            <div>
+              <span class="contact-label">Email</span>
+              <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+            </div>
+          </li>
+          <li>
+            <span class="icon-badge"><mat-icon aria-hidden="true">mark_email_read</mat-icon></span>
+            <div>
+              <span class="contact-label">PEC</span>
+              <a [href]="'mailto:' + contact.pec">{{ contact.pec }}</a>
+            </div>
+          </li>
+          <li>
+            <span class="icon-badge"><mat-icon aria-hidden="true">location_on</mat-icon></span>
+            <div>
+              <span class="contact-label">Sede legale e operativa</span>
+              <address>{{ contact.address }}</address>
+              <a [href]="mapsUrl" target="_blank" rel="noopener noreferrer">Apri in Google Maps</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-12 col-lg-7">
+        <app-contact-form />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dove siamo -->
+<section class="section" aria-labelledby="map-title">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-eyebrow">Dove siamo</p>
+      <h2 id="map-title" class="section-title">La nostra sede</h2>
+      <p class="section-lead">{{ contact.address }}</p>
+    </header>
+
+    <!-- Google Maps loads only after the click on "Mostra mappa", as stated in the Cookie Policy -->
+    <div class="map-frame">
+      @if (mapConsent()) {
+        <iframe
+          [src]="mapEmbedUrl"
+          title="Mappa della sede M.E. Security Service su Google Maps"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      } @else {
+        <div class="map-placeholder">
+          <mat-icon aria-hidden="true">map</mat-icon>
+          <p>
+            La mappa è fornita da Google Maps. Se la carichi, Google riceverà alcuni dati, come il tuo indirizzo IP,
+            e potrà installare propri cookie. Maggiori dettagli nella <a routerLink="/cookie-policy">Cookie Policy</a>.
+          </p>
+          <div class="cta-group cta-group--center">
+            <button type="button" class="cta-btn cta-btn--navy" (click)="mapConsent.set(true)">
+              <mat-icon aria-hidden="true">map</mat-icon>
+              Mostra mappa
+            </button>
+            <a class="cta-btn cta-btn--outline-navy" [href]="mapsUrl" target="_blank" rel="noopener noreferrer">
+              <mat-icon aria-hidden="true">open_in_new</mat-icon>
+              Apri in Google Maps
+            </a>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
 </section>

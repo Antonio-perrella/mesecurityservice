@@ -1,0 +1,154 @@
+<div class="form-card">
+  <h2 class="form-title">Scrivici</h2>
+  <p class="form-intro">Compila il modulo e ti ricontatteremo. I campi con * sono obbligatori.</p>
+
+  <!-- Always in the page, so screen readers announce the messages that appear inside it -->
+  <div aria-live="polite">
+    @if (status() === 'sent') {
+      <div class="form-alert form-alert--success">
+        <mat-icon aria-hidden="true">check_circle</mat-icon>
+        <p><strong>Messaggio inviato.</strong> Grazie per averci scritto: ti ricontatteremo appena possibile.</p>
+      </div>
+    }
+    @if (status() === 'error') {
+      <div class="form-alert form-alert--error">
+        <mat-icon aria-hidden="true">error</mat-icon>
+        <p>
+          <strong>Non è stato possibile inviare il messaggio.</strong>
+          Riprova tra qualche minuto, oppure chiamaci al <a [href]="contact.phoneHref">{{ contact.phone }}</a>
+          o <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer">scrivici su WhatsApp</a>.
+        </p>
+      </div>
+    }
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="cf-name">Nome e cognome *</label>
+        <input
+          id="cf-name"
+          class="form-control"
+          formControlName="name"
+          autocomplete="name"
+          maxlength="100"
+          required
+          [class.is-invalid]="showError('name')"
+          [attr.aria-invalid]="showError('name')"
+          [attr.aria-describedby]="showError('name') ? 'cf-name-error' : null"
+        >
+        @if (showError('name')) {
+          <div id="cf-name-error" class="invalid-feedback">Inserisci il tuo nome.</div>
+        }
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="cf-company">Azienda</label>
+        <input id="cf-company" class="form-control" formControlName="company" autocomplete="organization" maxlength="100">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="cf-email">Email *</label>
+        <input
+          id="cf-email"
+          type="email"
+          class="form-control"
+          formControlName="email"
+          autocomplete="email"
+          required
+          [class.is-invalid]="showError('email')"
+          [attr.aria-invalid]="showError('email')"
+          [attr.aria-describedby]="showError('email') ? 'cf-email-error' : null"
+        >
+        @if (showError('email')) {
+          <div id="cf-email-error" class="invalid-feedback">
+            {{ form.controls.email.hasError('required') ? 'Inserisci la tua email.' : 'Inserisci un indirizzo email valido.' }}
+          </div>
+        }
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="cf-phone">Telefono</label>
+        <input
+          id="cf-phone"
+          type="tel"
+          class="form-control"
+          formControlName="phone"
+          autocomplete="tel"
+          maxlength="30"
+          [class.is-invalid]="showError('phone')"
+          [attr.aria-invalid]="showError('phone')"
+          [attr.aria-describedby]="showError('phone') ? 'cf-phone-error' : null"
+        >
+        @if (showError('phone')) {
+          <div id="cf-phone-error" class="invalid-feedback">Inserisci un numero di telefono valido.</div>
+        }
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cf-service">Servizio di interesse</label>
+      <select id="cf-service" class="custom-select" formControlName="service">
+        <option value="">Seleziona un servizio</option>
+        @for (option of serviceOptions; track option) {
+          <option [value]="option">{{ option }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="cf-message">Messaggio *</label>
+      <textarea
+        id="cf-message"
+        class="form-control"
+        formControlName="message"
+        rows="5"
+        maxlength="3000"
+        required
+        [class.is-invalid]="showError('message')"
+        [attr.aria-invalid]="showError('message')"
+        [attr.aria-describedby]="showError('message') ? 'cf-message-error' : null"
+      ></textarea>
+      @if (showError('message')) {
+        <div id="cf-message-error" class="invalid-feedback">Scrivi il tuo messaggio.</div>
+      }
+    </div>
+
+    <!-- Honeypot for spam bots, invisible and unreachable for people -->
+    <div class="honeypot" aria-hidden="true">
+      <label for="cf-website">Lascia vuoto questo campo</label>
+      <input id="cf-website" formControlName="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="form-group custom-control custom-checkbox">
+      <input
+        id="cf-privacy"
+        type="checkbox"
+        class="custom-control-input"
+        formControlName="privacy"
+        required
+        [class.is-invalid]="showError('privacy')"
+        [attr.aria-invalid]="showError('privacy')"
+        [attr.aria-describedby]="showError('privacy') ? 'cf-privacy-error privacy-note' : 'privacy-note'"
+      >
+      <!-- Opens in a new tab, so the visitor doesn't lose what they typed -->
+      <label class="custom-control-label" for="cf-privacy">
+        Ho letto l’<a routerLink="/privacy-policy" target="_blank" rel="noopener">informativa privacy</a> *
+      </label>
+      @if (showError('privacy')) {
+        <div id="cf-privacy-error" class="invalid-feedback">Per inviare il messaggio devi confermare di aver letto l’informativa.</div>
+      }
+    </div>
+
+    <p id="privacy-note" class="privacy-note">
+      Il messaggio ci viene recapitato via email tramite il servizio FormSubmit.
+    </p>
+
+    <button type="submit" class="cta-btn cta-btn--gold" [disabled]="status() === 'sending'">
+      <mat-icon aria-hidden="true">{{ status() === 'sending' ? 'hourglass_top' : 'send' }}</mat-icon>
+      {{ status() === 'sending' ? 'Invio in corso…' : 'Invia messaggio' }}
+    </button>
+  </form>
+</div>

@@ -41,7 +41,7 @@ describe('ChiSiamoComponent', () => {
   });
 
   it('should show the office address', () => {
-    expect(element.querySelector('.office figcaption')!.textContent).toContain('Via Napoli a Chiaiano 38 (NA)');
+    expect(element.querySelector('.office figcaption')!.textContent).toContain('Via Napoli 38, Chiaiano (NA)');
   });
 
   it('should end with the contact call to action', () => {
