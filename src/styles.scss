@@ -110,7 +110,7 @@ a.mat-mdc-button-base:hover { text-decoration: none; }
     line-height: 1.15;
   }
 
-  p:last-child {
+  h1 + p {
     max-width: 720px;
     margin: 0;
     color: rgba(255, 255, 255, 0.8);
@@ -142,6 +142,32 @@ a.mat-mdc-button-base:hover { text-decoration: none; }
   margin-bottom: 40px;
 
   @media (min-width: 992px) { margin-bottom: 0; }
+}
+
+/* White cards with a gold top border, all of the same height within a row */
+.card-row { margin-bottom: -30px; } /* absorbs the last cards' bottom margin, so the section keeps its padding */
+
+.card-col {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.service-card {
+  flex: 1;
+  padding: 32px;
+  border-top: 3px solid var(--brand-gold);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 19, 44, 0.06);
+
+  p:last-child { margin-bottom: 0; }
+}
+
+.service-title {
+  margin-bottom: 12px;
+  color: var(--brand-navy);
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 
 /* Gold icon on a navy rounded square */
@@ -219,4 +245,16 @@ a.mat-mdc-button-base:hover { text-decoration: none; }
   color: #fff;
 
   &:hover { background: #1ebe5b; color: #fff; }
+}
+
+/* Company sign-off, projected under the buttons of the closing call to action */
+.cta-signature {
+  margin: 48px 0 0;
+  color: #4a5568;
+
+  strong {
+    display: block;
+    color: var(--brand-navy);
+    font-size: 1.1rem;
+  }
 }

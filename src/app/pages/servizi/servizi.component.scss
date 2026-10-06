@@ -1,0 +1,102 @@
+:host {
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Jump links to the sections of the page
+
+.service-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 32px;
+
+  a {
+    padding: 6px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    color: #fff;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      border-color: var(--brand-gold);
+      color: var(--brand-gold);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--brand-gold);
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Service cards
+
+.service-title--large {
+  font-size: 1.6rem;
+}
+
+.service-highlight {
+  color: var(--brand-navy);
+  font-weight: 500;
+}
+
+// Unarmed guarding
+
+.section-image--wide {
+  margin-top: 24px;
+}
+
+.check-card {
+  margin-top: 40px;
+  padding: 32px;
+  border-radius: 16px;
+  background: var(--surface-light);
+}
+
+.check-title {
+  margin-bottom: 12px;
+  color: var(--brand-navy);
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.check-list {
+  margin-bottom: 16px;
+
+  li {
+    display: flex;
+    gap: 12px;
+    padding: 8px 0;
+  }
+
+  mat-icon {
+    flex-shrink: 0;
+    color: var(--brand-gold-dark);
+  }
+}
+
+.check-note {
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid #dde3ea;
+}
+
+@media (min-width: 992px) {
+  .check-card {
+    margin-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-nav a {
+    transition: none;
+  }
+}

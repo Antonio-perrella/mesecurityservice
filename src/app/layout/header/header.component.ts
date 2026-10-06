@@ -1,5 +1,6 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { Component, inject, signal } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+import { Component, ElementRef, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,6 +24,10 @@ export class HeaderComponent {
   readonly menuOpen = signal(false);
 
   constructor() {
+    // The header is sticky: links to an anchor (e.g. /servizi#presidio-fisso) must stop below it, not under it
+    const host: HTMLElement = inject(ElementRef).nativeElement;
+    inject(ViewportScroller).setOffset(() => [0, host.offsetHeight + 16]);
+
     // Bootstrap "md" breakpoint: from here up the desktop menu is visible, so the mobile one must not stay open
     inject(BreakpointObserver)
       .observe('(min-width: 768px)')

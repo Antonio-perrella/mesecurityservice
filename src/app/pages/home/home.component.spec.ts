@@ -29,16 +29,16 @@ describe('HomeComponent', () => {
     expect(element.querySelectorAll('h1').length).toBe(1);
   });
 
-  it('should list the fiduciary services', () => {
-    const titles = Array.from(element.querySelectorAll('.service-title')).map(h => h.textContent!.trim());
-    expect(titles).toContain('Portierato e custodia');
-    expect(titles).toContain('Reception e accoglienza');
-    expect(titles).toContain('Controllo accessi');
-    expect(titles).toContain('Servizi fiduciari temporanei');
-  });
-
-  it('should list the unarmed guarding activities', () => {
-    expect(element.querySelectorAll('.check-list li').length).toBe(8);
+  it('should link each service teaser to its section of the Servizi page', () => {
+    const links = Array.from(element.querySelectorAll('.teaser-link')).map(a => a.getAttribute('href'));
+    expect(links).toEqual([
+      '/servizi#servizi-fiduciari',
+      '/servizi#vigilanza-non-armata',
+      '/servizi#presidio-fisso',
+      '/servizi#eventi-e-manifestazioni',
+      '/servizi#controllo-accessi',
+      '/servizi#servizi-personalizzati',
+    ]);
   });
 
   it('should show the five reasons to choose us', () => {
