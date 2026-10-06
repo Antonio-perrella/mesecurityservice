@@ -1,4 +1,313 @@
-<section class="container py-5">
-  <h1>ME Security Service</h1>
-  <p>Sito in costruzione.</p>
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-lg-7 hero-text">
+        <p class="section-eyebrow">M.E. Security Service</p>
+        <h1 class="hero-title">Professionalità, presenza e sicurezza al servizio del cliente.</h1>
+        <p class="hero-lead">
+          Servizi fiduciari e vigilanza non armata per aziende, attività commerciali, condomini,
+          cantieri, strutture private ed eventi.
+        </p>
+        <div class="cta-group">
+          <a class="cta-btn cta-btn--gold" [routerLink]="quoteItem.path">
+            <mat-icon aria-hidden="true">request_quote</mat-icon>
+            Richiedi un preventivo
+          </a>
+          <a class="cta-btn cta-btn--outline-light" [href]="contact.phoneHref">
+            <mat-icon aria-hidden="true">call</mat-icon>
+            Chiama {{ contact.phone }}
+          </a>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-5">
+        <figure class="hero-media">
+          <img
+            src="assets/images/operatore-presidio.jpg"
+            alt="Operatore M.E. Security Service accanto all’auto di servizio davanti a una struttura residenziale"
+            width="739"
+            height="740"
+            fetchpriority="high"
+          >
+        </figure>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- Sectors -->
+<section class="sectors" aria-label="Le realtà per cui lavoriamo">
+  <div class="container">
+    <ul class="sector-list">
+      @for (sector of sectors; track sector.label) {
+        <li>
+          <mat-icon aria-hidden="true">{{ sector.icon }}</mat-icon>
+          {{ sector.label }}
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- I nostri servizi -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-lg-7">
+        <p class="section-eyebrow">I nostri servizi</p>
+        <h2 class="section-title">Sicurezza, presenza e professionalità.</h2>
+        <p>
+          Ogni realtà ha esigenze diverse. Per questo M.E. Security Service offre servizi di sicurezza
+          e servizi fiduciari progettati per rispondere in modo concreto alle necessità di aziende,
+          attività commerciali, condomini, cantieri, strutture private ed eventi.
+        </p>
+        <p>
+          Mettiamo a disposizione personale qualificato e un’organizzazione flessibile, con servizi
+          programmati sulla base delle esigenze del cliente: continuativi, temporanei, diurni, notturni
+          o su specifiche fasce orarie.
+        </p>
+        <p class="quote">
+          Il nostro obiettivo è semplice: garantire una presenza professionale, discreta e affidabile,
+          contribuendo alla sicurezza e al corretto funzionamento degli ambienti affidati.
+        </p>
+      </div>
+
+      <div class="col-12 col-lg-5">
+        <div class="schedule-card">
+          <h3 class="schedule-title">Servizi programmati</h3>
+          <ul class="schedule-list">
+            @for (item of schedules; track item.label) {
+              <li>
+                <mat-icon aria-hidden="true">{{ item.icon }}</mat-icon>
+                {{ item.label }}
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Servizi fiduciari -->
+<section class="section section--light">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-eyebrow">Servizi fiduciari</p>
+      <h2 class="section-title">Presenza e controllo, ogni giorno.</h2>
+      <p class="section-lead">
+        I servizi fiduciari rappresentano una soluzione efficace per garantire presidio, controllo
+        e assistenza all’interno di aziende, strutture commerciali, condomini, cantieri e aree private.
+      </p>
+    </header>
+
+    <div class="row card-row">
+      @for (service of fiduciaryServices; track service.title) {
+        <div class="col-12 col-md-6 card-col">
+          <article class="service-card">
+            <span class="icon-badge"><mat-icon aria-hidden="true">{{ service.icon }}</mat-icon></span>
+            <h3 class="service-title">{{ service.title }}</h3>
+            @for (paragraph of service.paragraphs; track $index) {
+              <p>{{ paragraph }}</p>
+            }
+            @if (service.highlight) {
+              <p class="service-highlight">{{ service.highlight }}</p>
+            }
+          </article>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Vigilanza non armata -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <p class="section-eyebrow">Vigilanza non armata</p>
+        <h2 class="section-title">Presidio e prevenzione.</h2>
+        <p>
+          La presenza di personale qualificato rappresenta un importante elemento di prevenzione
+          e deterrenza.
+        </p>
+        <p>
+          M.E. Security Service offre servizi di vigilanza non armata presso aziende, attività
+          commerciali, strutture private, cantieri e altre realtà che necessitano di un presidio
+          professionale.
+        </p>
+        <img
+          class="section-image section-image--wide"
+          src="assets/images/auto-servizio.jpg"
+          alt="Auto di servizio M.E. Security Service con le portiere aperte"
+          width="739"
+          height="333"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <div class="check-card">
+          <h3 class="check-title">I servizi possono comprendere:</h3>
+          <ul class="check-list">
+            @for (activity of guardingActivities; track activity) {
+              <li>
+                <mat-icon aria-hidden="true">check_circle</mat-icon>
+                {{ activity }}
+              </li>
+            }
+          </ul>
+          <p class="check-note">
+            Ogni servizio viene organizzato in funzione delle caratteristiche della struttura e delle
+            esigenze del cliente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Presidio fisso -->
+<section class="section section--light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-lg-5 media-col">
+        <img
+          class="section-image"
+          src="assets/images/guardiola-notturna.jpg"
+          alt="Guardiola di portierato illuminata durante un servizio notturno"
+          width="739"
+          height="924"
+          loading="lazy"
+        >
+      </div>
+      <div class="col-12 col-lg-6 offset-lg-1">
+        <p class="section-eyebrow">Presidio fisso</p>
+        <h2 class="section-title">La sicurezza dove serve.</h2>
+        <p>
+          Organizziamo servizi di presidio fisso presso aziende, stabilimenti, uffici, cantieri,
+          attività commerciali, condomini e strutture private.
+        </p>
+        <p>
+          Il personale garantisce una presenza costante durante le fasce orarie concordate, svolgendo
+          attività di controllo, presidio e segnalazione secondo le procedure definite con il cliente.
+        </p>
+        <p>
+          Il servizio può essere programmato per specifiche fasce orarie oppure organizzato su
+          turnazioni continuative.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Eventi e manifestazioni -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Photo first in the markup, so on mobile it sits above the text like in "Presidio fisso" -->
+      <div class="col-12 col-lg-5 offset-lg-1 order-lg-2 media-col">
+        <img
+          class="section-image"
+          src="assets/images/team-servizio-evento.jpg"
+          alt="Operatori M.E. Security Service in servizio durante una manifestazione pubblica"
+          width="1169"
+          height="1170"
+          loading="lazy"
+        >
+      </div>
+      <div class="col-12 col-lg-6 order-lg-1">
+        <p class="section-eyebrow">Servizi per eventi e manifestazioni</p>
+        <h2 class="section-title">Professionalità al servizio del tuo evento.</h2>
+        <p>
+          Eventi, fiere, manifestazioni, inaugurazioni e iniziative private richiedono organizzazione
+          e controllo.
+        </p>
+        <p>
+          M.E. Security Service mette a disposizione personale per supportare la gestione degli
+          accessi, dei flussi e delle attività di presidio durante lo svolgimento dell’evento.
+        </p>
+        <p>
+          Un servizio flessibile, progettato in base alla tipologia dell’evento, agli spazi disponibili
+          e alle esigenze organizzative del cliente.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Controllo accessi e servizi personalizzati -->
+<section class="section section--light">
+  <div class="container">
+    <div class="row card-row">
+      <div class="col-12 col-lg-6 card-col">
+        <article class="service-card">
+          <span class="icon-badge"><mat-icon aria-hidden="true">how_to_reg</mat-icon></span>
+          <p class="section-eyebrow">Controllo accessi e gestione flussi</p>
+          <h2 class="service-title service-title--large">Ordine, controllo e organizzazione.</h2>
+          <p>
+            Gestiamo gli accessi pedonali e veicolari presso aziende, strutture commerciali,
+            condomini, cantieri e aree private.
+          </p>
+          <p>
+            Il personale può occuparsi della verifica degli accessi autorizzati, dell’indirizzamento
+            dei visitatori e della gestione ordinata dei flussi di persone e mezzi.
+          </p>
+          <p class="service-highlight">
+            Una presenza professionale che contribuisce a mantenere ordine e controllo all’interno
+            della struttura.
+          </p>
+        </article>
+      </div>
+
+      <div class="col-12 col-lg-6 card-col">
+        <article class="service-card">
+          <span class="icon-badge"><mat-icon aria-hidden="true">tune</mat-icon></span>
+          <p class="section-eyebrow">Servizi personalizzati</p>
+          <h2 class="service-title service-title--large">La tua esigenza, la nostra soluzione.</h2>
+          <p>Non esistono due clienti con le stesse necessità.</p>
+          <p>
+            Per questo analizziamo le caratteristiche della struttura, gli orari, i flussi e le
+            specifiche esigenze operative per costruire un servizio realmente personalizzato.
+          </p>
+          <p class="service-highlight">
+            Dal presidio continuativo al servizio temporaneo, dalla gestione degli accessi al
+            portierato: scegliamo insieme la soluzione più adatta alla tua realtà.
+          </p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Perché sceglierci -->
+<section class="section section--navy">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-title">Perché scegliere M.E. Security Service?</h2>
+    </header>
+
+    <ul class="reason-grid">
+      @for (reason of reasons; track reason.title) {
+        <li class="reason">
+          <mat-icon aria-hidden="true">{{ reason.icon }}</mat-icon>
+          <h3 class="reason-title">{{ reason.title }}</h3>
+          <p>{{ reason.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- Contatto -->
+<app-contact-cta
+  eyebrow="Parliamo della tua sicurezza"
+  heading="Hai bisogno di un servizio fiduciario o di vigilanza non armata?"
+  lead="Raccontaci le tue esigenze. Analizzeremo insieme la soluzione più adatta alla tua struttura, agli orari e alle necessità operative."
+>
+  <p class="signature">
+    <strong>M.E. Security Service</strong>
+    Professionalità, presenza e sicurezza al servizio del cliente.
+  </p>
+</app-contact-cta>

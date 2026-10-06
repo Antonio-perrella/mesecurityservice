@@ -1,0 +1,28 @@
+<section class="section contact-cta">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-eyebrow">{{ eyebrow() }}</p>
+      <h2 class="section-title">{{ heading() }}</h2>
+      <p class="section-lead">{{ lead() }}</p>
+    </header>
+
+    <div class="cta-group cta-group--center">
+      <a class="cta-btn cta-btn--gold" [routerLink]="quoteItem.path">
+        <mat-icon aria-hidden="true">request_quote</mat-icon>
+        Richiedi un preventivo
+      </a>
+      <a class="cta-btn cta-btn--navy" [href]="contact.phoneHref">
+        <mat-icon aria-hidden="true">call</mat-icon>
+        Chiama {{ contact.phone }}
+      </a>
+      <a class="cta-btn cta-btn--whatsapp" [href]="whatsappUrl" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path [attr.d]="whatsappIcon" />
+        </svg>
+        Scrivici su WhatsApp
+      </a>
+    </div>
+
+    <ng-content />
+  </div>
+</section>

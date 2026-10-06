@@ -1,4 +1,107 @@
-<section class="container py-5">
-  <h1>Chi siamo</h1>
-  <p>Pagina in costruzione.</p>
+<header class="page-header">
+  <div class="container">
+    <p class="section-eyebrow">Chi siamo</p>
+    <h1>M.E. Security Service</h1>
+    <p>
+      Servizi fiduciari, portierato e vigilanza non armata per aziende, attività commerciali,
+      condomini, cantieri, strutture private ed eventi.
+    </p>
+  </div>
+</header>
+
+<!-- La nostra realtà -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Photo first in the markup, so on mobile it sits above the text -->
+      <div class="col-12 col-lg-5 offset-lg-1 order-lg-2 media-col">
+        <figure class="office">
+          <img
+            class="section-image"
+            src="assets/images/sede-ufficio.jpg"
+            alt="Ufficio della sede M.E. Security Service con le postazioni di lavoro e gli scaffali delle dotazioni"
+            width="1140"
+            height="1170"
+          >
+          <figcaption>La nostra sede, in {{ contact.address }}</figcaption>
+        </figure>
+      </div>
+
+      <div class="col-12 col-lg-6 order-lg-1">
+        <p class="section-eyebrow">La nostra realtà</p>
+        <h2 class="section-title">Personale qualificato, organizzazione flessibile.</h2>
+        <p>
+          {{ contact.companyName }} è specializzata in servizi fiduciari, portierato e vigilanza non
+          armata. Lavoriamo al fianco di aziende, attività commerciali, condomini, cantieri, strutture
+          private e organizzatori di eventi.
+        </p>
+        <p>
+          Dalla nostra sede organizziamo e coordiniamo ogni servizio: analizziamo le caratteristiche
+          della struttura, gli orari e i flussi, e definiamo insieme al cliente le procedure da seguire,
+          per servizi continuativi o temporanei, diurni o notturni.
+        </p>
+        <p class="quote">
+          Il nostro obiettivo è semplice: garantire una presenza professionale, discreta e affidabile,
+          contribuendo alla sicurezza e al corretto funzionamento degli ambienti affidati.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- I nostri valori -->
+<section class="section section--light">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-eyebrow">I nostri valori</p>
+      <h2 class="section-title">Protezione totale per la tua attività.</h2>
+      <p class="section-lead">I principi che guidano il nostro lavoro, in ogni servizio.</p>
+    </header>
+
+    <ul class="value-grid">
+      @for (value of values; track value.title) {
+        <li class="value-card">
+          <span class="icon-badge"><mat-icon aria-hidden="true">{{ value.icon }}</mat-icon></span>
+          <h3 class="value-title">{{ value.title }}</h3>
+          <p>{{ value.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- Il nostro personale -->
+<section class="section section--navy">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-eyebrow">Il nostro personale</p>
+      <h2 class="section-title">Riconoscibili in ogni servizio.</h2>
+      <p class="section-lead">
+        Divise, accessori e mezzi di servizio riportano il logo M.E. Security Service: il nostro
+        personale è facilmente identificabile da clienti, visitatori e fornitori.
+      </p>
+    </header>
+
+    <div class="row gallery">
+      @for (photo of gallery; track photo.src) {
+        <figure class="col-6 col-lg-3 gallery-item">
+          <img
+            [src]="photo.src"
+            [alt]="photo.alt"
+            [width]="photo.width"
+            [height]="photo.height"
+            [style.object-position]="photo.focus ?? null"
+            loading="lazy"
+          >
+          <figcaption>{{ photo.caption }}</figcaption>
+        </figure>
+      }
+    </div>
+  </div>
+</section>
+
+<app-contact-cta
+  eyebrow="Contattaci"
+  heading="Vuoi conoscerci meglio?"
+  lead="Chiamaci o scrivici per ricevere un preventivo gratuito o per fissare un appuntamento."
+/>

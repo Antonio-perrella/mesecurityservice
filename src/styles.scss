@@ -5,6 +5,9 @@
   --brand-navy-light: #0a2447;
   --brand-gold: #f5bd32;
   --brand-gold-light: #ffd060;
+  /* Gold readable as text on white and light grey backgrounds (contrast > 4.5:1) */
+  --brand-gold-dark: #8c6100;
+  --surface-light: #f4f6f9;
 }
 
 html, body { height: 100%; }
@@ -25,8 +28,195 @@ a.mat-mdc-button-base:hover { text-decoration: none; }
   h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--brand-navy); font-size: 1.1rem; font-weight: 500; }
   a { color: var(--brand-navy-light); text-decoration: underline; }
   a:hover { color: var(--brand-navy); }
-  th { background: #f4f6f9; color: var(--brand-navy); font-weight: 500; }
+  th { background: var(--surface-light); color: var(--brand-navy); font-weight: 500; }
   .table { font-size: 0.95rem; }
 }
 
 .legal-updated { color: #6c757d; font-size: 0.9rem; }
+
+/* Page sections */
+.section {
+  padding: 80px 0;
+  line-height: 1.65;
+
+  @media (max-width: 767.98px) { padding: 56px 0; }
+}
+
+.section--light { background: var(--surface-light); }
+
+.section--navy {
+  background: var(--brand-navy);
+  color: rgba(255, 255, 255, 0.85);
+
+  .section-title { color: #fff; }
+}
+
+.section-header {
+  max-width: 760px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: var(--brand-gold-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  &::before {
+    content: '';
+    flex-shrink: 0;
+    width: 32px;
+    height: 2px;
+    background: var(--brand-gold);
+  }
+
+  .section-header & { justify-content: center; }
+  .section--navy & { color: var(--brand-gold); }
+}
+
+.section-title {
+  margin-bottom: 20px;
+  color: var(--brand-navy);
+  font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.section-lead {
+  font-size: 1.1rem;
+  color: #4a5568;
+
+  .section--navy & { color: rgba(255, 255, 255, 0.8); }
+}
+
+/* Title band at the top of inner pages */
+.page-header {
+  padding: 64px 0 72px;
+  background: radial-gradient(circle at 85% 15%, var(--brand-navy-light), var(--brand-navy) 65%);
+  color: #fff;
+
+  .section-eyebrow { color: var(--brand-gold); }
+
+  h1 {
+    margin-bottom: 16px;
+    font-size: clamp(2rem, 1.4rem + 2.6vw, 3rem);
+    font-weight: 500;
+    line-height: 1.15;
+  }
+
+  p:last-child {
+    max-width: 720px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.15rem;
+    line-height: 1.6;
+  }
+}
+
+/* Key sentence of a text block, with a gold bar on the left */
+.quote {
+  margin: 24px 0 0;
+  padding-left: 20px;
+  border-left: 3px solid var(--brand-gold);
+  color: var(--brand-navy);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Photo next to the text of a section; on mobile it stacks above the text */
+.section-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 19, 44, 0.15);
+}
+
+.media-col {
+  margin-bottom: 40px;
+
+  @media (min-width: 992px) { margin-bottom: 0; }
+}
+
+/* Gold icon on a navy rounded square */
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  background: var(--brand-navy);
+  color: var(--brand-gold);
+
+  mat-icon { width: 28px; height: 28px; font-size: 28px; }
+}
+
+/* Call-to-action buttons */
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cta-group--center { justify-content: center; }
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 10px 24px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+  &:hover { text-decoration: none; }
+
+  &:focus-visible {
+    outline: 3px solid var(--brand-gold);
+    outline-offset: 3px;
+  }
+
+  mat-icon, svg { flex-shrink: 0; width: 20px; height: 20px; font-size: 20px; fill: currentColor; }
+
+  @media (prefers-reduced-motion: reduce) { transition: none; }
+}
+
+.cta-btn--gold {
+  background: var(--brand-gold);
+  color: var(--brand-navy);
+
+  &:hover { background: var(--brand-gold-light); color: var(--brand-navy); }
+}
+
+.cta-btn--navy {
+  background: var(--brand-navy);
+  color: #fff;
+
+  &:hover { background: var(--brand-navy-light); color: #fff; }
+}
+
+.cta-btn--outline-light {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+
+  &:hover { border-color: #fff; background: #fff; color: var(--brand-navy); }
+}
+
+.cta-btn--whatsapp {
+  background: #25d366;
+  color: #fff;
+
+  &:hover { background: #1ebe5b; color: #fff; }
+}
