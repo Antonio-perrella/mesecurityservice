@@ -36,7 +36,7 @@ describe('ContattiComponent', () => {
     expect(list.querySelector('a[href="tel:+393522456708"]')).toBeTruthy();
     expect(list.querySelector('a[href="tel:+3908119634301"]')).toBeTruthy();
     expect(list.querySelector('a[href^="https://wa.me/393522456708"]')).toBeTruthy();
-    expect(list.querySelector('a[href="mailto:vigilanzamesrl@outlook.com"]')).toBeTruthy();
+    expect(list.querySelector('a[href="mailto:info@vigilanzamesecurity.it"]')).toBeTruthy();
     expect(list.querySelector('a[href="mailto:vigilanzamesrl@pec.it"]')).toBeTruthy();
     expect(list.textContent).toContain('Via Napoli 38, Chiaiano (NA)');
   });

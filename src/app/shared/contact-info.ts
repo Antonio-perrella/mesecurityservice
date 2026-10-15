@@ -4,7 +4,7 @@ export const CONTACT_INFO = {
   address: 'Via Napoli 38, Chiaiano (NA)',
   mapsQuery: 'VIGILANZA M.E.SECURITY SERVICE SRL, Via Napoli, 38, 80145 Napoli NA',
   pec: 'vigilanzamesrl@pec.it',
-  email: 'vigilanzamesrl@outlook.com',
+  email: 'info@vigilanzamesecurity.it',
   phone: '352 245 6708',
   phoneHref: 'tel:+393522456708',
   landline: '081 1963 4301',

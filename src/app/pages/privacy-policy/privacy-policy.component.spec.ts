@@ -28,7 +28,7 @@ describe('PrivacyPolicyComponent', () => {
   it('should name the data controller', () => {
     expect(element.textContent).toContain('M.E. Security Service Srl');
     expect(element.textContent).toContain('11075411212');
-    expect(element.querySelector('a[href="mailto:vigilanzamesrl@outlook.com"]')).toBeTruthy();
+    expect(element.querySelector('a[href="mailto:info@vigilanzamesecurity.it"]')).toBeTruthy();
   });
 
   it('should state the 12 months retention for contact requests', () => {

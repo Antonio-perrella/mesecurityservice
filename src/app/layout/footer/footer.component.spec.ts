@@ -36,7 +36,7 @@ describe('FooterComponent', () => {
   it('should link phone and email', () => {
     expect(element.querySelector('a[href="tel:+393522456708"]')).toBeTruthy();
     expect(element.querySelector('a[href="tel:+3908119634301"]')).toBeTruthy();
-    expect(element.querySelector('a[href="mailto:vigilanzamesrl@outlook.com"]')).toBeTruthy();
+    expect(element.querySelector('a[href="mailto:info@vigilanzamesecurity.it"]')).toBeTruthy();
   });
 
   it('should open social profiles in a new tab', () => {
