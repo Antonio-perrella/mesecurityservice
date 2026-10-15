@@ -1,4 +1,210 @@
-<section class="container py-5">
-  <h1>Preventivo</h1>
-  <p>Pagina in costruzione.</p>
+<header class="page-header">
+  <div class="container">
+    <p class="section-eyebrow">Preventivo</p>
+    <h1>Richiedi un preventivo gratuito</h1>
+    <p>
+      Seleziona i servizi che ti interessano e raccontaci le tue esigenze: analizzeremo insieme la soluzione più
+      adatta alla tua struttura, agli orari e alle necessità operative.
+    </p>
+  </div>
+</header>
+
+<section class="section section--light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-8 form-col">
+        <div class="form-card">
+          <h2 class="form-title">La tua richiesta</h2>
+          <p class="form-intro">I campi con * sono obbligatori.</p>
+
+          <div aria-live="polite">
+            @if (status() === 'sent') {
+              <div class="form-alert form-alert--success">
+                <mat-icon aria-hidden="true">check_circle</mat-icon>
+                <p><strong>Richiesta inviata.</strong> Grazie: ti ricontatteremo appena possibile per il preventivo.</p>
+              </div>
+            }
+            @if (status() === 'error') {
+              <div class="form-alert form-alert--error">
+                <mat-icon aria-hidden="true">error</mat-icon>
+                <p>
+                  <strong>Non è stato possibile inviare la richiesta.</strong>
+                  Riprova tra qualche minuto, oppure chiamaci al <a [href]="contact.phoneHref">{{ contact.phone }}</a>
+                  o <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer">scrivici su WhatsApp</a>.
+                </p>
+              </div>
+            }
+          </div>
+
+          <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+            <fieldset
+              id="qf-services"
+              class="quote-step"
+              formGroupName="services"
+              [attr.aria-describedby]="showError('services') ? 'qf-services-error' : null"
+            >
+              <legend class="step-title"><span class="step-number" aria-hidden="true">1</span> Quali servizi ti interessano?&nbsp;*</legend>
+              @if (showError('services')) {
+                <p id="qf-services-error" class="step-error">Seleziona almeno un servizio.</p>
+              }
+
+              @for (group of groups; track group.title; let groupIndex = $index) {
+                <p class="option-group-title" [id]="'qf-group-' + groupIndex">{{ group.title }}</p>
+                <div class="option-grid" role="group" [attr.aria-labelledby]="'qf-group-' + groupIndex">
+                  @for (option of group.options; track option.id) {
+                    <label class="service-option">
+                      <input type="checkbox" [formControlName]="option.id">
+                      <mat-icon aria-hidden="true">{{ option.icon }}</mat-icon>
+                      <span>{{ option.title }}</span>
+                    </label>
+                  }
+                </div>
+              }
+            </fieldset>
+
+            <fieldset class="quote-step">
+              <legend class="step-title"><span class="step-number" aria-hidden="true">2</span> Raccontaci le tue esigenze</legend>
+              <div class="form-group">
+                <label for="qf-notes">Note</label>
+                <textarea
+                  id="qf-notes"
+                  class="form-control"
+                  formControlName="notes"
+                  rows="6"
+                  maxlength="3000"
+                  aria-describedby="qf-notes-hint"
+                ></textarea>
+                <small id="qf-notes-hint" class="form-text text-muted">
+                  Ad esempio: tipo di struttura e località, periodo, giorni e orari del servizio, numero di operatori.
+                </small>
+              </div>
+            </fieldset>
+
+            <fieldset class="quote-step">
+              <legend class="step-title"><span class="step-number" aria-hidden="true">3</span> I tuoi dati</legend>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="qf-name">Nome e cognome *</label>
+                  <input
+                    id="qf-name"
+                    class="form-control"
+                    formControlName="name"
+                    autocomplete="name"
+                    maxlength="100"
+                    required
+                    [class.is-invalid]="showError('name')"
+                    [attr.aria-invalid]="showError('name')"
+                    [attr.aria-describedby]="showError('name') ? 'qf-name-error' : null"
+                  >
+                  @if (showError('name')) {
+                    <div id="qf-name-error" class="invalid-feedback">Inserisci il tuo nome.</div>
+                  }
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="qf-company">Azienda</label>
+                  <input id="qf-company" class="form-control" formControlName="company" autocomplete="organization" maxlength="100">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="qf-email">Email *</label>
+                  <input
+                    id="qf-email"
+                    type="email"
+                    class="form-control"
+                    formControlName="email"
+                    autocomplete="email"
+                    required
+                    [class.is-invalid]="showError('email')"
+                    [attr.aria-invalid]="showError('email')"
+                    [attr.aria-describedby]="showError('email') ? 'qf-email-error' : null"
+                  >
+                  @if (showError('email')) {
+                    <div id="qf-email-error" class="invalid-feedback">
+                      {{ form.controls.email.hasError('required') ? 'Inserisci la tua email.' : 'Inserisci un indirizzo email valido.' }}
+                    </div>
+                  }
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="qf-phone">Telefono</label>
+                  <input
+                    id="qf-phone"
+                    type="tel"
+                    class="form-control"
+                    formControlName="phone"
+                    autocomplete="tel"
+                    maxlength="30"
+                    [class.is-invalid]="showError('phone')"
+                    [attr.aria-invalid]="showError('phone')"
+                    [attr.aria-describedby]="showError('phone') ? 'qf-phone-error' : null"
+                  >
+                  @if (showError('phone')) {
+                    <div id="qf-phone-error" class="invalid-feedback">Inserisci un numero di telefono valido.</div>
+                  }
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="honeypot" aria-hidden="true">
+              <label for="qf-website">Lascia vuoto questo campo</label>
+              <input id="qf-website" formControlName="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form-group custom-control custom-checkbox">
+              <input
+                id="qf-privacy"
+                type="checkbox"
+                class="custom-control-input"
+                formControlName="privacy"
+                required
+                [class.is-invalid]="showError('privacy')"
+                [attr.aria-invalid]="showError('privacy')"
+                [attr.aria-describedby]="showError('privacy') ? 'qf-privacy-error qf-privacy-note' : 'qf-privacy-note'"
+              >
+              <label class="custom-control-label" for="qf-privacy">
+                Ho letto l’<a routerLink="/privacy-policy" target="_blank" rel="noopener">informativa privacy</a> *
+              </label>
+              @if (showError('privacy')) {
+                <div id="qf-privacy-error" class="invalid-feedback">Per inviare la richiesta devi confermare di aver letto l’informativa.</div>
+              }
+            </div>
+
+            <p id="qf-privacy-note" class="privacy-note">
+              La richiesta ci viene recapitata via email tramite il servizio FormSubmit.
+            </p>
+
+            <button type="submit" class="cta-btn cta-btn--gold" [disabled]="status() === 'sending'">
+              <mat-icon aria-hidden="true">{{ status() === 'sending' ? 'hourglass_top' : 'send' }}</mat-icon>
+              {{ status() === 'sending' ? 'Invio in corso…' : 'Invia richiesta' }}
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-4">
+        <aside class="quote-aside">
+          <h2 class="aside-title">Preferisci parlarne a voce?</h2>
+          <p>Chiamaci o scrivici su WhatsApp: possiamo definire insieme il servizio anche al telefono.</p>
+          <div class="aside-actions">
+            <a class="cta-btn cta-btn--gold" [href]="contact.phoneHref">
+              <mat-icon aria-hidden="true">smartphone</mat-icon>
+              {{ contact.phone }}
+            </a>
+            <a class="cta-btn cta-btn--outline-light" [href]="contact.landlineHref">
+              <mat-icon aria-hidden="true">call</mat-icon>
+              {{ contact.landline }}
+            </a>
+            <a class="cta-btn cta-btn--whatsapp" [href]="whatsappUrl" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path [attr.d]="whatsappIcon" /></svg>
+              Scrivici su WhatsApp
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
 </section>

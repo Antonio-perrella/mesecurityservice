@@ -1,0 +1,148 @@
+:host {
+  display: block;
+}
+
+.form-col {
+  margin-bottom: 40px;
+}
+
+// Form steps
+
+.quote-step {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #e3e7ee;
+}
+
+.step-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: var(--brand-navy);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--brand-navy);
+  color: var(--brand-gold);
+  font-size: 0.95rem;
+}
+
+.step-error {
+  color: #dc3545;
+  font-size: 0.875rem;
+}
+
+// Selectable services
+
+.option-group-title {
+  margin: 16px 0 10px;
+  color: var(--brand-gold-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.form-card .service-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid #cdd5df;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+
+  input {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--brand-navy);
+  }
+
+  mat-icon {
+    flex-shrink: 0;
+    color: var(--brand-gold-dark);
+  }
+
+  &:hover {
+    border-color: var(--brand-navy-light);
+  }
+
+  &:has(input:checked) {
+    border-color: var(--brand-navy);
+    background: #fff8e6;
+  }
+
+  &:has(input:focus-visible) {
+    outline: 2px solid var(--brand-navy);
+    outline-offset: 2px;
+  }
+}
+
+// Phone and WhatsApp alternative
+
+.quote-aside {
+  padding: 32px;
+  border-radius: 16px;
+  background: var(--brand-navy);
+  color: rgba(255, 255, 255, 0.85);
+
+  p {
+    margin-bottom: 24px;
+  }
+}
+
+.aside-title {
+  margin-bottom: 12px;
+  color: var(--brand-gold);
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.aside-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .option-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .form-col {
+    margin-bottom: 0;
+  }
+
+  .quote-aside {
+    position: sticky;
+    top: 96px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-card .service-option {
+    transition: none;
+  }
+}
