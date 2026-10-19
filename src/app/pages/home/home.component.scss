@@ -44,6 +44,10 @@ ul {
   position: relative;
   max-width: 460px;
   margin: 0 auto;
+  aspect-ratio: 739 / 922;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 
   // Gold frame offset behind the photo
   &::before {
@@ -52,15 +56,16 @@ ul {
     inset: 16px -12px -16px 12px;
     border: 2px solid var(--brand-gold);
     border-radius: 16px;
+    z-index: 1;
   }
 
   img {
-    position: relative;
-    display: block;
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: auto;
-    border-radius: 16px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    height: 100%;
+    object-fit: cover;
+    object-position: center 50%;
   }
 }
 
